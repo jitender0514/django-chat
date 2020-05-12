@@ -4,7 +4,8 @@ Boilerplate code for Django project setup
 
 ## Requirement:
 - Django=3.x 
-- python=3.7
+- Python=3.7
+- [Redis server](https://medium.com/@petehouston/install-and-config-redis-on-mac-os-x-via-homebrew-eb8df9a4f298)
 
 ## Installation:
 - Install the Python3 in your system

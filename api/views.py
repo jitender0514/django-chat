@@ -3,10 +3,9 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from api.serializers import (UserSerializer,
                              GroupSerializer,
-                             RoomParticipantsSerializer,
                              RoomDetailsSerializer,
                              MessagesSerializer)
-from chat.models import RoomParticipants, Messages, RoomDetails
+from chat.models import Messages, RoomDetails
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -15,15 +14,6 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class RoomParticipantViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows room-participant to be viewed or edited.
-    """
-    queryset = RoomParticipants.objects.all()
-    serializer_class = RoomParticipantsSerializer
     # permission_classes = [permissions.IsAuthenticated]
 
 

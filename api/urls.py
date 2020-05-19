@@ -9,7 +9,6 @@ app_name = 'api'
 router = routers.DefaultRouter()
 router.register(r'users', api_views.UserViewSet)
 router.register(r'groups', api_views.GroupViewSet)
-router.register(r'room-participant', api_views.RoomParticipantViewSet)
 router.register(r'room-detail', api_views.RoomDetailViewSet)
 router.register(r'message', api_views.MessageViewSet)
 

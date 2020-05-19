@@ -13,6 +13,7 @@ class RoomDetails(models.Model):
     room_name = models.CharField(max_length=50,
                                  blank=False,
                                  null=False)
+    participants = models.ManyToManyField(settings.AUTH_USER_MODEL)
     is_active = models.BooleanField(default=True,
                                     verbose_name="Is room Active")
     created = models.DateTimeField(auto_now_add=True)
@@ -21,18 +22,18 @@ class RoomDetails(models.Model):
         return self.room
 
 
-class RoomParticipants(models.Model):
-    participant = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                    on_delete=models.DO_NOTHING,
-                                    related_name="user_rooms",
-                                    )
-    room = models.ForeignKey(RoomDetails,
-                             on_delete=models.DO_NOTHING,
-                             related_name="room_participants",
-                             )
-
-    def __str__(self):
-        return self.room.room_name
+# class RoomParticipants(models.Model):
+#     participant = models.ForeignKey(settings.AUTH_USER_MODEL,
+#                                     on_delete=models.DO_NOTHING,
+#                                     related_name="user_rooms",
+#                                     )
+#     room = models.ForeignKey(RoomDetails,
+#                              on_delete=models.DO_NOTHING,
+#                              related_name="room_participants",
+#                              )
+#
+#     def __str__(self):
+#         return self.room.room_name
 
 
 class Messages(models.Model):

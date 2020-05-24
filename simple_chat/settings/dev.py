@@ -16,11 +16,13 @@ DATABASES = {
 }
 
 INSTALLED_APPS += [
+    'corsheaders',
     'debug_toolbar',
     'project_rename'
 ]
 
 MIDDLEWARE += [
+    'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
@@ -49,3 +51,6 @@ def display_toolbar(request):
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': display_toolbar
 }
+
+
+CORS_ORIGIN_ALLOW_ALL = True

@@ -3,6 +3,11 @@ from django.conf import settings
 
 # Create your models here.
 
+RoomType = (
+    (1, "direct"),
+    (2, "group")
+)
+
 
 class RoomDetails(models.Model):
     room = models.CharField(max_length=8,
@@ -13,6 +18,7 @@ class RoomDetails(models.Model):
     room_name = models.CharField(max_length=50,
                                  blank=False,
                                  null=False)
+    room_type = models.IntegerField(choices=RoomType, default=RoomType[0][0])
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL)
     is_active = models.BooleanField(default=True,
                                     verbose_name="Is room Active")

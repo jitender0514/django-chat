@@ -26,7 +26,7 @@ class RoomDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = RoomDetails
-        fields = ['room', 'room_name','room_participants', 'participants', 'is_active', 'created']
+        fields = ['room', 'room_name','room_participants', 'room_type','participants', 'is_active', 'created']
         extra_kwargs = {'room': {'read_only': True},
                         "is_active": {'read_only': True},
                         "created": {'read_only': True}}
